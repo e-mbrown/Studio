@@ -13,3 +13,5 @@ const Record = (props) => {
     )
 
 }
+
+export default Record

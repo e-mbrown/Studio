@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import RecordList from './components/Recordlist'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           Login
         </a>
       </header>
+      <RecordList/>
     </div>
   );
 }
