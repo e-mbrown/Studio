@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from '../components/Header';
-import Portfolio from '../components/Portfolio';
-import Transactions from '../components/Transactions';
+import Collections from '../components/Collections';
+import Artists from '../components/Artists';
+import Records from '../components/Records';
 import Console from '../components/Console';
 import { account, checkStock } from './../services';
 
@@ -12,10 +12,10 @@ class Account extends React.Component {
         this.state = {
             userName: '',
             email: '',
-            cashBalance: 0,
-            portfolio: {},
-            transactions: [],
-            tab: 'portfolio'
+            collections: {},
+            artists: {},
+            records: {},
+            tab: 'collections'
         }
     }
 
@@ -30,13 +30,13 @@ class Account extends React.Component {
 
     setAccount = async () => {
         const userData = await account();
-        const { name, email, cashBalance, portfolio, transactions } = userData.data;
+        const { name, email, collections, artists, records } = userData.data;
         this.setState({
             userName: name,
             email: email,
-            cashBalance: cashBalance,
-            portfolio: portfolio,
-            transactions: transactions
+            collections: collections,
+            artists: artists,
+            records: records
         })
     }
 
@@ -48,14 +48,14 @@ class Account extends React.Component {
 
     render() {
 
-        const view = this.state.tab == 'transactions' ? (<Transactions transactions={this.state.transactions} />) : (<Portfolio portfolio={this.state.portfolio} />);
+        const view = this.state.tab == 'records' ? (<Records records={this.state.records} />) : (<Collections collections={this.state.collections} />);
 
         return(
             <>
                 <Header setTab={this.setTab} tab={this.state.tab} />
                 <div className="accountBody">
                     {view}
-                    <Console cashBalance={this.state.cashBalance} portfolio={this.state.portfolio} checkStock={this.checkStock} setAccount={this.setAccount} />
+                    <Console collections={this.state.collections} artists={this.state.artists} checkStock={this.checkStock} setAccount={this.setAccount} />
                 </div>
             </>
         )

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Function component, renders to page
-const Record = (props) => {
+const Records = (props) => {
     console.log(props)
     return (
         <div class="record">
@@ -13,3 +13,5 @@ const Record = (props) => {
     )
 
 }
+
+export default Records;

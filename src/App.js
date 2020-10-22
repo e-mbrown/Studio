@@ -7,7 +7,6 @@ import Register from './screens/Register';
 import Login from './screens/Login';
 import Account from './screens/Account';
 
-
 // function App() {
 //   return (
 //     <div className="App">
