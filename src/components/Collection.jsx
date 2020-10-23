@@ -1,11 +1,11 @@
 import React from 'react';
 import Records from './Record';
 
-class Collections extends React.Component {
+class Collection extends React.Component {
     constructor(props){
         super(props)
         
     }
 }
 
-export default Collections;
+export default Collection;
