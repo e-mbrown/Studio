@@ -3,9 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Register from './screens/Register';
-import Login from './screens/Login';
-import Account from './screens/Account';
+import Recordlist from './components/Recordlist';
+// import Register from './screens/Register';
+// import Login from './screens/Login';
+// import Account from './screens/Account';
 
 // function App() {
 //   return (
@@ -56,11 +57,11 @@ class App extends React.Component {
 
   render() {
 
-    const account = this.state.userId ? (<Account userId={this.state.userId} />) : (<Login setUser={this.setUser} />)
+    // const account = this.state.userId ? (<Account userId={this.state.userId} />) : (<Login setUser={this.setUser} />)
 
     return (
       <div className="App">
-        <BrowserRouter>
+        {/* <BrowserRouter>
           <Switch>
             <Route path="/register">
               <Register setUser={this.setUser} />
@@ -72,7 +73,8 @@ class App extends React.Component {
               <Login setUser={this.setUser} />
             </Route>
           </Switch>
-        </BrowserRouter>
+        </BrowserRouter> */}
+        <Recordlist/>
       </div>
     );
   }

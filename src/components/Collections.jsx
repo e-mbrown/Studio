@@ -1,5 +1,5 @@
 import React from 'react';
-import Records from './Records';
+import Records from './Record';
 
 class Collections extends React.Component {
     constructor(props){

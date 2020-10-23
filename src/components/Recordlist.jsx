@@ -17,9 +17,9 @@ class Recordlist extends React.Component {
 
     getRecords = async () => {
         const resp = await records()
-        console.log(resp)
+        console.log(resp.results)
         this.setState({
-            
+            recordData: resp.results
         })
     }
 
