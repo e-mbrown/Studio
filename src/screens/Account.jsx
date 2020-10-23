@@ -3,7 +3,7 @@ import Collections from '../components/Collections';
 import Artists from '../components/Artists';
 import Records from '../components/Records';
 import Console from '../components/Console';
-import { account, checkStock } from './../services';
+import { account } from './../services';
 
 class Account extends React.Component {
 
