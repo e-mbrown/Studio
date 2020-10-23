@@ -1,6 +1,7 @@
 import React from 'react';
 
 // Function component, renders to page
+// button likes & unlikes record
 const Record = (props) => {
     console.log(props)
     return (

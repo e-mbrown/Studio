@@ -2,6 +2,8 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { register } from './../services';
 
+//include button to direct to Account.jsx
+
 class Register extends React.Component {
     constructor(props) {
         super(props);

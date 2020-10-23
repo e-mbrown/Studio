@@ -5,6 +5,8 @@ import Records from '../components/Record';
 import Console from '../components/Console';
 import { account } from './../services';
 
+// button to direct to AllRecords.jsx
+
 class Account extends React.Component {
 
     constructor(props) {
