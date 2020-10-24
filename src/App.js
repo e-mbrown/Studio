@@ -7,6 +7,7 @@ import Landing from './screens/Landing';
 import Register from './screens/Register';
 import Login from './screens/Login';
 import Account from './screens/Account';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
 
