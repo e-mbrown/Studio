@@ -23,7 +23,6 @@ export const records = async () => {
 }
 
 export const collection = async () => {
-    console.log(localStorage.token)
     const resp = await Api.get('api/collections')
     return resp
 }
