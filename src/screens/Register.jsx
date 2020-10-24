@@ -60,7 +60,7 @@ class Register extends React.Component {
                 error: 'This email address is already registered.'
             })
         } else {
-            await this.props.setUser({id: resp.data.user_id, username: resp.username});
+            await this.props.setUser({username: resp.username});
             this.props.history.push(`/account`);
         }
       }
