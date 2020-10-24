@@ -7,11 +7,11 @@ import Button from 'react-bootstrap/Button'
 const Record = (props) => {
   console.log(props);
   return (
-    <Card border='secondary' style={{width: '18rem'}}>
+    <Card bg='secondary' text = 'white' border='secondary' style={{width: '18rem'}}>
       <Card.Img variant='top' src={props.img} alt={props.title}/>
       <Card.Body>
       <Card.Title>{props.title}</Card.Title>
-      <Card.Text><h3>{props.artist} ||</h3>
+      <Card.Text><h4>{props.artist} ||</h4>
       <p>{props.release}</p>
       </Card.Text>
       <Button variant='success'>Like</Button>
