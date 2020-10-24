@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import { login } from './../services';
-// import { login, wakeHeroku } from './../services';
+import { login/*, wakeHeroku*/ } from './../services';
 
 //include button to direct to Account.jsx
 
@@ -9,15 +8,17 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
+            username: '',
             password: '',
             error: null
-        }
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // componentDidMount = async () => {
-    //     await wakeHeroku(); // wakes Heroku server; not for professional use
-    // }
+    componentDidMount = async () => {
+        //await wakeHeroku(); // wakes Heroku server; not for professional use
+    }
 
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
@@ -31,7 +32,9 @@ class Login extends React.Component {
                 error: 'Invalid login.'
             })
         } else {
-            await this.props.setUser({id: resp.data.userId, name: resp.data.userName});
+            console.log(resp);
+            console.log(resp.token);
+            await this.props.setUser({token: resp.token});
             this.props.history.push(`/account`);
         }
       }
@@ -41,8 +44,8 @@ class Login extends React.Component {
             <form className='login' onSubmit={this.handleSubmit}>
                 <h3>Log In</h3>
                 <div>
-                    <label htmlFor='email'>Email address: </label>
-                    <input type='text' name='email' value={this.state.email} onChange={(e) => this.handleChange(e)}/>
+                    <label htmlFor='username'>Username: </label>
+                    <input type='text' name='username' value={this.state.username} onChange={(e) => this.handleChange(e)}/>
                 </div>
                 <div>
                     <label htmlFor='password'>Password: </label>
