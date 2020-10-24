@@ -24,6 +24,7 @@ class Recordlist extends React.Component {
     }
 
     render(){
+        console.log(this.state.recordData)
         const records = this.state.recordData.map(record => {
             return (
                 <>
