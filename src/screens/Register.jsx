@@ -8,8 +8,10 @@ class Register extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
+            username: '',
             email: '',
+            first_name: '',
+            last_name: '',
             password: '',
             confirm: '',
             match: false,
@@ -53,21 +55,25 @@ class Register extends React.Component {
                 error: 'This email address is already registered.'
             })
         } else {
-            await this.props.setUser({id: resp.data.userId, name: resp.data.userName});
+            await this.props.setUser({id: resp.data.user_id, name: resp.data.username});
             this.props.history.push(`/account`);
         }
       }
 
     render() {
-        const button = this.state.match && this.state.name && this.state.email ?
+        const button = this.state.match && this.state.first_name && this.state.email ?
             (<button type='submit'>Register</button>) :
             (<button type='button' style={{cursor: 'not-allowed'}}>Incomplete</button>)
         return(
             <form className='login' onSubmit={this.handleSubmit}>
                 <h3>Register</h3>
                 <div>
-                    <label htmlFor='name'>Your name: </label>
-                    <input type='text' name='name' value={this.state.name} onChange={(e) => this.handleChange(e)}/>
+                    <label htmlFor='first_name'>Your first name: </label>
+                    <input type='text' name='first_name' value={this.state.first_name} onChange={(e) => this.handleChange(e)}/>
+                </div>
+                <div>
+                    <label htmlFor='last_name'>Your last name: </label>
+                    <input type='text' name='last_name' value={this.state.last_name} onChange={(e) => this.handleChange(e)}/>
                 </div>
                 <div>
                     <label htmlFor='email'>Email address: </label>
