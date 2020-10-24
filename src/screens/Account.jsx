@@ -1,9 +1,10 @@
 import React from 'react';
 import Collection from '../components/Collection';
 //import Artists from '../components/Artists';
-import Record from '../components/Record';
+import Recordlist from '../components/Recordlist';
 import Console from '../components/Console';
 import Link from 'react-router-dom';
+import Logout from '../components/Logout';
 // import { account } from './../services';
 
 // button to direct to AllRecords.jsx
@@ -23,7 +24,7 @@ class Account extends React.Component {
     }
 
     componentDidMount() {
-        this.setAccount();
+        //this.setAccount();
     }
 
     // checkStock = async (symbol) => {
@@ -51,12 +52,13 @@ class Account extends React.Component {
 
     render() {
 
-        const view = this.state.tab == 'records' ? (<Record records={this.state.records} />) : (<Collection collection={this.state.collection} />);
+        const view = this.state.tab == 'records' ? (<Recordlist records={this.state.records} />) : (<Collection collection={this.state.collection} />);
 
         return(
             <>
                 {/*<Header setTab={this.setTab} tab={this.state.tab} />*/}
                 <div className="accountBody">
+                    <Logout />
                     {view}
                     {/*<Console collection={this.state.collection} records={this.state.records} setAccount={this.setAccount} />*/}
                 </div>
