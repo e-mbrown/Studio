@@ -26,16 +26,22 @@ class Account extends React.Component {
         }
     }
 
-    componentDidMount() {
-    }
-
+    // componentDidMount() {
+    // }
 
     setTab = (tab) => {
-       console.log(this.state.tab)
-        this.setState({
-            tab: 'records' ? 'collections' : 'records'
-        })
-    }
+        console.log(this.state.tab)
+        if(this.state.tab == 'records'){
+            this.setState({
+                tab: 'collections'
+            })
+        } 
+        else if(this.state.tab == 'collections'){
+         this.setState({
+             tab: 'records'
+         })
+        }
+     }
 
     render() {
 
