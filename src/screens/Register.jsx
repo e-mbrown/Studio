@@ -9,8 +9,10 @@ class Register extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
+            username: '',
             email: '',
+            first_name: '',
+            last_name: '',
             password: '',
             confirm: '',
             match: false,
@@ -54,7 +56,7 @@ class Register extends React.Component {
                 error: 'This email address is already registered.'
             })
         } else {
-            await this.props.setUser({id: resp.data.userId, name: resp.data.userName});
+            await this.props.setUser({id: resp.data.user_id, name: resp.data.username});
             this.props.history.push(`/account`);
         }
       }
@@ -66,6 +68,18 @@ class Register extends React.Component {
         return(
             <form className='login' onSubmit={this.handleSubmit}>
                 <h1>Register</h1>
+                <div>
+                    <label htmlFor='first_name'>Your first name: </label>
+                    <br></br>
+                    <input type='text' name='first_name' value={this.state.first_name} onChange={(e) => this.handleChange(e)}/>
+                </div>
+                <br></br>
+                <div>
+                    <label htmlFor='last_name'>Your last name: </label>
+                    <br></br>
+                    <input type='text' name='last_name' value={this.state.last_name} onChange={(e) => this.handleChange(e)}/>
+                </div>
+                <br></br>
                 <div>
                     <label htmlFor='name'>Username: </label>
                     <br></br>
