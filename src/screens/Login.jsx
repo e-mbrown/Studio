@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { login/*, wakeHeroku*/ } from './../services';
+import Button from 'react-bootstrap/Button';
 
 //include button to direct to Account.jsx
 
@@ -41,19 +42,24 @@ class Login extends React.Component {
     render() {
         return(
             <form className='login' onSubmit={this.handleSubmit}>
-                <h3>Log In</h3>
+                <h1>Log In</h1>
                 <div>
                     <label htmlFor='username'>Username: </label>
+                    <br></br>
                     <input type='text' name='username' value={this.state.username} onChange={(e) => this.handleChange(e)}/>
                 </div>
+                <br></br>
                 <div>
                     <label htmlFor='password'>Password: </label>
+                    <br></br>
                     <input type='password' name='password' value={this.state.password} onChange={(e) => this.handleChange(e)}/>
                 </div>
+                <br></br>
                 <div className="loginButton">
                     {this.state.error}
-                    <button type="submit">Log In</button>
+                    <Button variant="primary" type="submit">Log In</Button>
                 </div>
+                <br></br>
                 <div>
                     New user? <Link to="/register">Register here.</Link>
                 </div>
