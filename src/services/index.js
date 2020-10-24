@@ -3,6 +3,9 @@ import { apiUrl } from './apiConfig'
 import { /*changeHeader, clearHeader,*/ changeMethod, altUrl } from './apiConfig';
 
 export const login = async (user) => {
+    if (localStorage.token === undefined) {
+        localStorage.removeItem('token')
+    }
     const tempToken = localStorage.token
     await delete localStorage.token
     const resp = await Api.post('auth/users/login/', user)
