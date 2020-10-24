@@ -52,7 +52,7 @@ class Account extends React.Component {
 
     render() {
 
-        const view = this.state.tab == 'records' ? (<Recordlist records={this.state.records} />) : (<Collection collection={this.state.collection} />);
+        const view = this.state.tab === 'records' ? (<Recordlist records={this.state.records} />) : (<Collection collection={this.state.collection} />);
 
         return(
             <>

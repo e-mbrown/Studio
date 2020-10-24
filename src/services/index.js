@@ -28,7 +28,7 @@ export const collection = async () => {
 export const register = async (userData) => {
     try {
         const resp = await Api.post('/register', userData);
-        if (resp.status == 201) {
+        if (resp.status === 201) {
             //await clearHeader();
             await localStorage.setItem('token', resp.data.token);
             //await changeHeader();

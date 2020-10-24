@@ -19,7 +19,7 @@ class App extends React.Component {
   }
 
   setUser = (user) => {
-    console.log('setting this user' +user.id)
+    console.log('setting this user' + user.id)
     this.setState({
       user_id: user.id,
       username: user.name
@@ -40,19 +40,24 @@ class App extends React.Component {
       <div className="App">
         <BrowserRouter>
           <Switch>
-            <Route path="/login">
-              {/*<Login setUser={this.setUser} />*/}
-              {account}
-            </Route>
-            <Route path="/register">
-              <Register setUser={this.setUser} />
-            </Route>
-            <Route path="/account">
-              { account }
-            </Route>
+
             <Route path="/">
               <Landing />
             </Route>
+
+            <Route path="/register">
+              <Register setUser={this.setUser} />
+            </Route>
+
+            <Route path="/login">
+              <Login setUser={this.setUser} />
+              {account}
+            </Route>
+
+            <Route path="/account">
+              {account}
+            </Route>
+
           </Switch>
         </BrowserRouter>
         {/*<Recordlist/>*/}
