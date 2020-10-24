@@ -33,7 +33,6 @@ class Login extends React.Component {
             })
         } else {
             console.log(resp);
-            console.log(resp.token);
             await this.props.setUser({token: resp.token});
             this.props.history.push(`/account`);
         }

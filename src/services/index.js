@@ -19,6 +19,11 @@ export const records = async () => {
     return resp
 }
 
+export const collection = async () => {
+    const resp = await Api.get('api/collections')
+    return resp
+}
+
 export const register = async (userData) => {
     try {
         const resp = await Api.post('/register', userData);
