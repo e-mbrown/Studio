@@ -5,7 +5,7 @@ import React from "react";
 const Record = (props) => {
   console.log(props);
   return (
-    <div class="record">
+    <div className="record">
       <img src={props.src} alt={props.title}></img>
       <h2>{props.title}</h2>
       <h3>{props.artist} ||</h3>

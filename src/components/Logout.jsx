@@ -19,11 +19,16 @@ class Logout extends React.Component {
     render() {
         return (
             <>
-                { this.state.loggedin ? (<button onClick={this.handleLogout}>Logout</button>) : (<h3>You may or may not be logged <input type="file" name="" id=""/></h3>)}
+                { localStorage.token == null ? (<h5>You should hopefully be logged out if you see this because that means the token is indeed null</h5>): (<button onClick={ this.handleLogout }>Logout</button>) }
             </>
         )
     }
 }
+
+// localStorage.getItem('token') == null
+// JwtToken == null
+// this.state.loggedin
+// localStorage.token
 
 // {JwtToken == null ? (<Link to="/"></Link>) : (<button onClick={this.handleLogout}>Logout</button>)}
 

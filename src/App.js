@@ -34,14 +34,15 @@ class App extends React.Component {
 
     //const account = this.state.user_id ? (<Account user_id={this.state.user_id} />) : (<Login setUser={this.setUser} />)
 
-    const account = localStorage.getItem == null ? (<Login setUser={this.setUser} />): (<Account user_id={this.state.user_id} />)
+    const account = localStorage.getItem('token') == null ? (< Login setUser={this.setUser} />) : (<Account user_id={this.state.user_id} />)
 
     return (
       <div className="App">
         <BrowserRouter>
           <Switch>
             <Route path="/login">
-              <Login setUser={this.setUser} />
+              {/*<Login setUser={this.setUser} />*/}
+              {account}
             </Route>
             <Route path="/register">
               <Register setUser={this.setUser} />
