@@ -1,6 +1,6 @@
 import Api from './apiConfig';
 import { apiUrl } from './apiConfig'
-import { changeHeader, clearHeader, changeMethod, altUrl } from './apiConfig';
+import { /*changeHeader, clearHeader,*/ changeMethod, altUrl } from './apiConfig';
 
 export const login = async (user) => {
     const tempToken = localStorage.token
@@ -23,9 +23,9 @@ export const register = async (userData) => {
     try {
         const resp = await Api.post('/register', userData);
         if (resp.status == 201) {
-            await clearHeader();
+            //await clearHeader();
             await localStorage.setItem('token', resp.data.token);
-            await changeHeader();
+            //await changeHeader();
         }
         return resp;
     } catch (error) {

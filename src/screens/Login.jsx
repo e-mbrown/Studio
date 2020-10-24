@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import { login, wakeHeroku } from './../services';
+import { login } from './../services';
+// import { login, wakeHeroku } from './../services';
 
 //include button to direct to Account.jsx
 
@@ -14,9 +15,9 @@ class Login extends React.Component {
         }
     }
 
-    componentDidMount = async () => {
-        await wakeHeroku(); // wakes Heroku server; not for professional use
-    }
+    // componentDidMount = async () => {
+    //     await wakeHeroku(); // wakes Heroku server; not for professional use
+    // }
 
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })

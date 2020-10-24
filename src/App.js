@@ -37,18 +37,21 @@ class App extends React.Component {
       <div className="App">
         <BrowserRouter>
           <Switch>
+            <Route path="/login">
+              <Login setUser={this.setUser} />
+            </Route>
             <Route path="/register">
               <Register setUser={this.setUser} />
             </Route>
             <Route path="/account">
-              {account}
+              {/*account*/}
             </Route>
             <Route path="/">
-              <Login setUser={this.setUser} />
+              <Landing />
             </Route>
           </Switch>
         </BrowserRouter>
-        <Recordlist/>
+        {/*<Recordlist/>*/}
       </div>
     );
   }

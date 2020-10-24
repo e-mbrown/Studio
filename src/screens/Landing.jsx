@@ -21,7 +21,7 @@ class Landing extends React.Component {
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                     <Link to="/register">Register</Link>
-                    <Link to="/login">Register</Link>
+                    <Link to="/login">Login</Link>
                 </header>
             </div>
         )
