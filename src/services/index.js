@@ -3,9 +3,9 @@ import { apiUrl } from './apiConfig'
 import { /*changeHeader, clearHeader,*/ changeMethod, altUrl } from './apiConfig';
 
 export const login = async (user) => {
-    if (localStorage.token === undefined) {
-        localStorage.removeItem('token')
-    }
+    // if (localStorage.token === undefined) {
+    //     localStorage.removeItem('token')
+    // }
     const tempToken = localStorage.token
     await delete localStorage.token
     const resp = await Api.post('auth/users/login/', user)
@@ -29,10 +29,10 @@ export const collection = async () => {
 
 export const register = async (userData) => {
     try {
-        const resp = await Api.post('/register', userData);
+        const resp = await Api.post('auth/users/register', userData);
         if (resp.status == 201) {
             //await clearHeader();
-            await localStorage.setItem('token', resp.data.token);
+            await localStorage.setItem('token', resp.token);
             //await changeHeader();
         }
         return resp;
