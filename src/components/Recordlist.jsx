@@ -17,13 +17,15 @@ class Recordlist extends React.Component {
 
     getRecords = async () => {
         const resp = await records()
-        console.log(resp.results)
+        console.log(resp)
+        console.log('these are the records' + resp.results)
         this.setState({
             recordData: resp.results
         })
     }
 
     render(){
+        console.log(this.state.recordData)
         const records = this.state.recordData.map(record => {
             return (
                 <>
