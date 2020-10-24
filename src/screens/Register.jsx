@@ -34,7 +34,7 @@ class Register extends React.Component {
 
     passwordChange = async e => {
         await this.handleChange(e);
-        if (this.state.password.length > 4 && this.state.password == this.state.confirm) {
+        if (this.state.password.length > 4 && this.state.password === this.state.confirm) {
             this.setState({
                 match: true
             })
@@ -55,7 +55,7 @@ class Register extends React.Component {
     handleSubmit = async event => {
         event.preventDefault();
         const resp = await register(this.state);
-        if (resp.status == 205 ) {
+        if (resp.status === 205 ) {
             this.setState({
                 error: 'This email address is already registered.'
             })

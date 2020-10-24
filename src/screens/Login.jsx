@@ -39,6 +39,10 @@ class Login extends React.Component {
       }
 
     render() {
+
+        if (localStorage.token === undefined) {
+            localStorage.removeItem('token')
+        }
         return(
             <form className='login' onSubmit={this.handleSubmit}>
                 <h1>Log In</h1>
