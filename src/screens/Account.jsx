@@ -1,9 +1,9 @@
 import React from 'react';
-import Collections from '../components/Collections';
+import Collection from '../components/Collection';
 import Artists from '../components/Artists';
 import Records from '../components/Record';
 import Console from '../components/Console';
-import { account } from './../services';
+// import { account } from './../services';
 
 // button to direct to AllRecords.jsx
 
@@ -14,7 +14,7 @@ class Account extends React.Component {
         this.state = {
             userName: '',
             email: '',
-            collections: {},
+            collection: [],
             artists: {},
             records: {},
             tab: 'collections'
@@ -25,22 +25,22 @@ class Account extends React.Component {
         this.setAccount();
     }
 
-    checkStock = async (symbol) => {
-        const resp = await checkStock(symbol);
-        return resp.data;
-    }
+    // checkStock = async (symbol) => {
+    //     const resp = await checkStock(symbol);
+    //     return resp.data;
+    //}
 
-    setAccount = async () => {
-        const userData = await account();
-        const { name, email, collections, artists, records } = userData.data;
-        this.setState({
-            userName: name,
-            email: email,
-            collections: collections,
-            artists: artists,
-            records: records
-        })
-    }
+    // setAccount = async () => {
+    //     const userData = await account();
+    //     const { name, email, collection, artists, records } = userData.data;
+    //     this.setState({
+    //         userName: name,
+    //         email: email,
+    //         collection: collection,
+    //         artists: artists,
+    //         records: records
+    //     })
+    // }
 
     setTab = (tab) => {
         this.setState({
@@ -50,14 +50,14 @@ class Account extends React.Component {
 
     render() {
 
-        const view = this.state.tab == 'records' ? (<Records records={this.state.records} />) : (<Collections collections={this.state.collections} />);
+        const view = this.state.tab == 'records' ? (<Records records={this.state.records} />) : (<Collection collection={this.state.collection} />);
 
         return(
             <>
-                <Header setTab={this.setTab} tab={this.state.tab} />
+                {/*<Header setTab={this.setTab} tab={this.state.tab} />*/}
                 <div className="accountBody">
                     {view}
-                    <Console collections={this.state.collections} artists={this.state.artists} checkStock={this.checkStock} setAccount={this.setAccount} />
+                    <Console collection={this.state.collection} records={this.state.records} setAccount={this.setAccount} />
                 </div>
             </>
         )
