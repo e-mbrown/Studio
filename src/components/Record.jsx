@@ -14,7 +14,7 @@ const Record = (props) => {
       <Card.Text><h4>{props.artist} ||</h4>
       <p>{props.release}</p>
       </Card.Text>
-      <Button variant='success'>Like</Button>
+      <Button variant='success'>Add to collection</Button>
     </Card.Body>
     </Card>
   );
