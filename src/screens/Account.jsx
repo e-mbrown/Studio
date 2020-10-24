@@ -5,6 +5,9 @@ import Recordlist from '../components/Recordlist';
 import Console from '../components/Console';
 import Link from 'react-router-dom';
 import Logout from '../components/Logout';
+import Header from '../components/Header'
+import Button from 'react-bootstrap/Button'
+
 // import { account } from './../services';
 
 // button to direct to AllRecords.jsx
@@ -24,43 +27,27 @@ class Account extends React.Component {
     }
 
     componentDidMount() {
-        //this.setAccount();
     }
 
-    // checkStock = async (symbol) => {
-    //     const resp = await checkStock(symbol);
-    //     return resp.data;
-    //}
-
-    // setAccount = async () => {
-    //     const userData = await account();
-    //     const { name, email, collection, artists, records } = userData.data;
-    //     this.setState({
-    //         userName: name,
-    //         email: email,
-    //         collection: collection,
-    //         artists: artists,
-    //         records: records
-    //     })
-    // }
 
     setTab = (tab) => {
+       console.log(this.state.tab)
         this.setState({
-            tab: tab
+            tab: 'records' ? 'collections' : 'records'
         })
     }
 
     render() {
 
         const view = this.state.tab == 'records' ? (<Recordlist records={this.state.records} />) : (<Collection collection={this.state.collection} />);
+        const text = this.state.tab == 'records' ? 'Go to Collection' : 'Go to record'
+
 
         return(
             <>
-                {/*<Header setTab={this.setTab} tab={this.state.tab} />*/}
                 <div className="accountBody">
-                    <Logout />
+                    <Header tab={<Button variant='dark' text='secondary' onClick={ this.setTab }>{text}</Button>} logout={<Logout />}/>
                     {view}
-                    {/*<Console collection={this.state.collection} records={this.state.records} setAccount={this.setAccount} />*/}
                 </div>
             </>
         )
