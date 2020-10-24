@@ -2,6 +2,8 @@ import React from 'react';
 import { JwtToken } from '../services/apiConfig';
 import Link from 'react-router-dom';
 import { render } from '@testing-library/react';
+import Nav from 'react-bootstrap/Nav'
+
 
 class Logout extends React.Component {
     constructor(props) {
@@ -19,7 +21,7 @@ class Logout extends React.Component {
     render() {
         return (
             <>
-                { localStorage.token == null ? (<h5>You should hopefully be logged out if you see this because that means the token is indeed null</h5>): (<button onClick={ this.handleLogout }>Logout</button>) }
+                { localStorage.token == null ? (<h5>You should hopefully be logged out if you see this because that means the token is indeed null</h5>): (<Nav.Link onClick={ this.handleLogout }>Logout</Nav.Link>) }
             </>
         )
     }
