@@ -13,38 +13,42 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userId: null,
-      userName: null
+      user_id: null,
+      username: null
     }
   }
 
   setUser = (user) => {
+    console.log('setting this user' +user.id)
     this.setState({
-      userId: user.id,
-      userName: user.name
+      user_id: user.id,
+      username: user.name
     })
   }
 
-  setAccount = () => {
+  // setAccount = () => {
 
-  }
+  // }
 
   render() {
 
-    // const account = this.state.userId ? (<Account userId={this.state.userId} />) : (<Login setUser={this.setUser} />)
+    //const account = this.state.user_id ? (<Account user_id={this.state.user_id} />) : (<Login setUser={this.setUser} />)
+
+    const account = localStorage.getItem('token') == null ? (< Login setUser={this.setUser} />) : (<Account user_id={this.state.user_id} />)
 
     return (
       <div className="App">
         <BrowserRouter>
           <Switch>
             <Route path="/login">
-              <Login setUser={this.setUser} />
+              {/*<Login setUser={this.setUser} />*/}
+              {account}
             </Route>
             <Route path="/register">
               <Register setUser={this.setUser} />
             </Route>
             <Route path="/account">
-              {/*account*/}
+              { account }
             </Route>
             <Route path="/">
               <Landing />
