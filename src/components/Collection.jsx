@@ -37,6 +37,7 @@ class Collection extends React.Component {
         )
         return (
             <div>
+                <h3>Your Record Collection</h3>
                 { collection }
             </div>
         )

@@ -43,6 +43,7 @@ class Recordlist extends React.Component {
         })
         return (
             <>
+                <h3>Available Records</h3>
                 <CardColumns>
                 { records }
                 </CardColumns>
