@@ -45,7 +45,6 @@ export const register = async (userData) => {
     } catch (error) {
         throw error
     }
-
 }
 
 
