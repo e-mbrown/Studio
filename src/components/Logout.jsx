@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
+import Nav from 'react-bootstrap/Nav';
 
 export default () => {
   const logout = () => {
@@ -8,7 +8,7 @@ export default () => {
   }
 
   return (
-    <Button variant="link" onClick={logout}>Logout</Button>
+    <Nav.Link onClick={logout}>Logout</Nav.Link>
   )
 }
 
