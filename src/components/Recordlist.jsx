@@ -37,9 +37,10 @@ class Recordlist extends React.Component {
         console.log("Has Recordlist skipped the token clearing?")
         console.log(this.state.recordData)
         const records = this.state.recordData.map(record => {
+            console.log(this.props.tab)
             return (
                 <>
-                <Record id={record.id} title = {record.title} artist={record.artist} release={record.releaseYear} img={record.cover_image}/>
+                <Record id={record.id} title = {record.title} artist={record.artist} release={record.releaseYear} img={record.cover_image} tab={this.props.tab}/>
                 </>
         )}
         )

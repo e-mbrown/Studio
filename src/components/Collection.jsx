@@ -1,5 +1,6 @@
 import React from 'react';
 import Record from './Record';
+import CardColumns from 'react-bootstrap/CardColumns'
 import { collection } from '../services';
 
 class Collection extends React.Component {
@@ -27,11 +28,10 @@ class Collection extends React.Component {
     
     render(){
         const collection = this.state.collectionData.map(record => {
+
             return (
                 <>
-                <Record id={record.id} title = {record.title} artist={record.artist} releaseYear={record.releaseYear} img={record.cover_image}/>
-                <button //onClick={() => this.favHandler(record.id)}
-                >Like the song</button>
+                <Record id={record.id} title = {record.title} artist={record.artist} releaseYear={record.releaseYear} img={record.cover_image} tab={this.props.tab}/>
                 {/*<input type='text' name='username' value={this.state.username} onChange={(e) => this.changeHandler(e)}></input>*/}
                 </>
         )}

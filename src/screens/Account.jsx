@@ -22,7 +22,8 @@ class Account extends React.Component {
             collection: [],
             artists: {},
             records: {},
-            tab: 'records'
+            tab: 'records',
+            addToggle: 'Add to Collection'
         }
     }
 
@@ -33,21 +34,26 @@ class Account extends React.Component {
         console.log(this.state.tab)
         if(this.state.tab === 'records'){
             this.setState({
-                tab: 'collections'
+                tab: 'collections',
+                addToggle: 'Remove from Collection'
             })
         } 
         else if(this.state.tab === 'collections'){
-         this.setState({
-             tab: 'records'
-         })
+            this.setState({
+                tab: 'records',
+                addToggle: 'Add to Collection'
+            })
+            
         }
      }
 
     render() {
 
-        const view = this.state.tab === 'records' ? (<Recordlist records={this.state.records} />) : (<Collection collection={this.state.collection} />);
-        const text = this.state.tab === 'records' ? 'Go to Collection' : 'Go to record'
+        const view = this.state.tab === 'records' ? (<Recordlist records={this.state.records} tab={this.state.addToggle}/>) : (<Collection collection={this.state.collection} tab={this.state.addToggle} />);
 
+        console.log(this.state.addToggle);
+
+        const text = this.state.tab === 'records' ? 'Go to Collection' : 'Go to record'
 
         return(
             <>

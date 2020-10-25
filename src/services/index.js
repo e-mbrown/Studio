@@ -17,6 +17,21 @@ export const login = async (user) => {
     return resp
 }
 
+export const register = async (userData) => {
+    if (localStorage.token === undefined) {
+        await localStorage.removeItem(localStorage.token)
+    }
+    try {
+        const resp = await Api.post('auth/users/register/', userData);
+        if (resp) {
+            await localStorage.setItem('token', resp.token);
+        } 
+        return resp;
+    } catch (error) {
+        throw error
+    }
+}
+
 export const records = async () => {
     const resp = await Api.get('api/records/')
     return resp
@@ -32,20 +47,11 @@ export const addToCollection = async (record) => {
     return resp
 }
 
-export const register = async (userData) => {
-    if (localStorage.token === undefined) {
-        await localStorage.removeItem(localStorage.token)
-    }
-    try {
-        const resp = await Api.post('auth/users/register/', userData);
-        if (resp) {
-            await localStorage.setItem('token', resp.token);
-        } 
-        return resp;
-    } catch (error) {
-        throw error
-    }
+export const removeToCollection = async (record) => {
+    const resp = await Api.delete('api/collections/', record)
+    return resp
 }
+
 
 
 // Original code
