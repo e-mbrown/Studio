@@ -27,14 +27,20 @@ export const collection = async () => {
     return resp
 }
 
+export const addToCollection = async () => {
+    const resp = await Api.put('api/collections/')
+    return resp
+}
+
 export const register = async (userData) => {
+    if (localStorage.token === undefined) {
+        await localStorage.removeItem(localStorage.token)
+    }
     try {
         const resp = await Api.post('auth/users/register/', userData);
-        if (resp.status === 201) {
-            //await clearHeader();
+        if (resp) {
             await localStorage.setItem('token', resp.token);
-            //await changeHeader();
-        }
+        } 
         return resp;
     } catch (error) {
         throw error

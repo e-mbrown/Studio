@@ -1,4 +1,5 @@
 import React from 'react';
+import Login from '../screens/Login';
 import Logout from './Logout'
 import Button from 'react-bootstrap/Button'
 import Navbar from 'react-bootstrap/Navbar'
@@ -24,6 +25,7 @@ class Header extends React.Component {
                     <Nav.Link href="#features">Features</Nav.Link>
                     </Nav>
                     <Nav>
+                    {this.props.username}
                     {this.props.tab}
                     {this.props.logout}
                     </Nav>
