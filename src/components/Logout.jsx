@@ -18,10 +18,10 @@ class Logout extends React.Component {
     handleLogout = () => {
         localStorage.removeItem('token')
         this.setState({loggedin: false})
-        const { cookies } = this.props;
-        cookies.remove('Token');
-        window.location.href = '/';
-        return false;
+        // const { cookies } = this.props;
+        // cookies.remove('Token');
+        // window.location.href = '/';
+        // return false;
     }
 
     render() {
