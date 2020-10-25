@@ -33,13 +33,16 @@ class Login extends React.Component {
                 error: 'Invalid login.'
             })
         } else {
-            console.log(resp);
             await this.props.setUser({token: resp.token});
             this.props.history.push(`/account`);
         }
       }
 
     render() {
+
+        if (localStorage.token === undefined) {
+            localStorage.removeItem('token')
+        }
         return(
             <form className='login' onSubmit={this.handleSubmit}>
                 <h1>Log In</h1>

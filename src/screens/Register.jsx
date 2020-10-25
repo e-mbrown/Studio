@@ -17,7 +17,11 @@ class Register extends React.Component {
             confirm: '',
             match: false,
             error: null
-        }
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.emailChange = this.emailChange.bind(this);
+        this.passwordChange = this.passwordChange.bind(this);
     }
 
     componentDidMount() {
@@ -30,7 +34,7 @@ class Register extends React.Component {
 
     passwordChange = async e => {
         await this.handleChange(e);
-        if (this.state.password.length > 4 && this.state.password == this.state.confirm) {
+        if (this.state.password.length > 4 && this.state.password === this.state.confirm) {
             this.setState({
                 match: true
             })
@@ -51,18 +55,18 @@ class Register extends React.Component {
     handleSubmit = async event => {
         event.preventDefault();
         const resp = await register(this.state);
-        if (resp.status == 205 ) {
+        if (resp.status === 205 ) {
             this.setState({
                 error: 'This email address is already registered.'
             })
         } else {
-            await this.props.setUser({id: resp.data.user_id, name: resp.data.username});
+            await this.props.setUser({username: resp.username});
             this.props.history.push(`/account`);
         }
       }
 
     render() {
-        const button = this.state.match && this.state.name && this.state.email ?
+        const button = this.state.match && this.state.username && this.state.email ?
             (<Button variant="success" type='submit'>Register</Button>) :
             (<Button variant="danger" type='button' style={{cursor: 'not-allowed'}}>Incomplete</Button>)
         return(
@@ -83,7 +87,7 @@ class Register extends React.Component {
                 <div>
                     <label htmlFor='name'>Username: </label>
                     <br></br>
-                    <input type='text' name='name' value={this.state.name} onChange={(e) => this.handleChange(e)}/>
+                    <input type='text' name='username' value={this.state.name} onChange={(e) => this.handleChange(e)}/>
                 </div>
                 <br></br>
                 <div>

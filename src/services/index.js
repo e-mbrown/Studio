@@ -1,10 +1,10 @@
 import Api from './apiConfig';
-import { apiUrl } from './apiConfig'
-import { /*changeHeader, clearHeader,*/ changeMethod, altUrl } from './apiConfig';
+//import { apiUrl } from './apiConfig'
+//import { /*changeHeader, clearHeader,*/ changeMethod, altUrl } from './apiConfig';
 
 export const login = async (user) => {
     if (localStorage.token === undefined) {
-        localStorage.removeItem('token')
+        localStorage.removeItem(localStorage.token)
     }
     const tempToken = localStorage.token
     await delete localStorage.token
@@ -23,17 +23,16 @@ export const records = async () => {
 }
 
 export const collection = async () => {
-    console.log(localStorage.token)
-    const resp = await Api.get('api/collections')
+    const resp = await Api.get('api/collections/')
     return resp
 }
 
 export const register = async (userData) => {
     try {
-        const resp = await Api.post('/register', userData);
-        if (resp.status == 201) {
+        const resp = await Api.post('auth/users/register/', userData);
+        if (resp.status === 201) {
             //await clearHeader();
-            await localStorage.setItem('token', resp.data.token);
+            await localStorage.setItem('token', resp.token);
             //await changeHeader();
         }
         return resp;

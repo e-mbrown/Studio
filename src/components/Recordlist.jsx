@@ -17,6 +17,9 @@ class Recordlist extends React.Component {
     }
 
     getRecords = async () => {
+        if (localStorage.token === undefined) {
+            localStorage.removeItem(localStorage.token)
+        }
         const resp = await records()
         console.log(resp)
         console.log('these are the records' + resp.results)
@@ -26,6 +29,12 @@ class Recordlist extends React.Component {
     }
 
     render(){
+        console.log("please")
+        if (localStorage.token === undefined) {
+            console.log("Is Recordlist running?")
+            localStorage.removeItem('token')
+        }
+        console.log("Has Recordlist skipped the token clearing?")
         console.log(this.state.recordData)
         const records = this.state.recordData.map(record => {
             return (
