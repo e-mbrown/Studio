@@ -27,8 +27,8 @@ export const collection = async () => {
     return resp
 }
 
-export const addToCollection = async () => {
-    const resp = await Api.put('api/collections/')
+export const addToCollection = async (user) => {
+    const resp = await Api.put('api/collections/', user)
     return resp
 }
 
