@@ -27,6 +27,11 @@ export const collection = async () => {
     return resp
 }
 
+export const addToCollection = async () => {
+    const resp = await Api.put('api/collections/')
+    return resp
+}
+
 export const register = async (userData) => {
     try {
         const resp = await Api.post('auth/users/register/', userData);
