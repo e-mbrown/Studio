@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { addToCollection, collection } from "../services";
+import { addToCollection, removeFromCollection } from "../services/index";
 
 // Function component, renders to page
 // button likes & unlikes record
@@ -21,10 +21,20 @@ const Record = (props) => {
           <h4>{props.artist} ||</h4>
           <p>{props.release}</p>
         </Card.Text>
-        <Button variant="success" onClick="">{props.tab}</Button>
+        <Button
+          variant="success"
+          id={props.id}
+          onClick={(e) =>
+            props.page === "records"
+              ? addToCollection(e)
+              : removeFromCollection(e)
+          }
+        >
+          {props.tab}
+        </Button>
       </Card.Body>
     </Card>
   );
 };
-
+// (e) => props.tab === 'records' ? addToCollection(e) : removeFromCollection(e)
 export default Record;

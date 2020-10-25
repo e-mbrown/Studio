@@ -43,12 +43,12 @@ export const collection = async () => {
 }
 
 export const addToCollection = async (record) => {
-    const resp = await Api.put('api/collections/', record)
+    const resp = await Api.put('api/collections/', record.target.id)
     return resp
 }
 
-export const removeToCollection = async (record) => {
-    const resp = await Api.delete('api/collections/', record)
+export const removeFromCollection = async (record) => {
+    const resp = await Api.delete('api/collections/', record.target.id)
     return resp
 }
 

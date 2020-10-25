@@ -1,6 +1,5 @@
 import React from 'react';
 import Record from './Record';
-import CardColumns from 'react-bootstrap/CardColumns'
 import { collection } from '../services';
 
 class Collection extends React.Component {
@@ -19,8 +18,8 @@ class Collection extends React.Component {
 
     getCollection = async () => {
         const resp = await collection()
-        console.log(resp)
-        console.log(resp.results)
+        console.log('this is your collection ', resp)
+        console.log('collection MAYBE ', resp.results)
         this.setState({
             collectionData: resp.results
         })
@@ -31,8 +30,8 @@ class Collection extends React.Component {
 
             return (
                 <>
-                <Record id={record.id} title = {record.title} artist={record.artist} releaseYear={record.releaseYear} img={record.cover_image} tab={this.props.tab}/>
-                {/*<input type='text' name='username' value={this.state.username} onChange={(e) => this.changeHandler(e)}></input>*/}
+                    <Record id={record.id} title = {record.title} artist={record.artist} releaseYear={record.releaseYear} img={record.cover_image} tab={this.props.tab} key={record.id} page={this.props.page}/>
+                    {/*<input type='text' name='username' value={this.state.username} onChange={(e) => this.changeHandler(e)}></input>*/}
                 </>
         )}
         )

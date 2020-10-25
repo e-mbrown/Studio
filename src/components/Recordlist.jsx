@@ -31,19 +31,16 @@ class Recordlist extends React.Component {
     render(){
         console.log("please")
         if (localStorage.token === undefined) {
-            console.log("Is Recordlist running?")
+            console.log("Recordlist is running?")
             localStorage.removeItem('token')
         }
-        console.log("Has Recordlist skipped the token clearing?")
-        console.log(this.state.recordData)
         const records = this.state.recordData.map(record => {
-            console.log(this.props.tab)
             return (
                 <>
-                <Record id={record.id} title = {record.title} artist={record.artist} release={record.releaseYear} img={record.cover_image} tab={this.props.tab}/>
+                <Record id={record.id} title = {record.title} artist={record.artist} release={record.releaseYear} img={record.cover_image} tab={this.props.tab} key = {record.id} page={this.props.page}/>
                 </>
-        )}
-        )
+            )
+        })
         return (
             <>
                 <CardColumns>
