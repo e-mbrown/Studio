@@ -16,15 +16,18 @@ class App extends React.Component {
     super(props);
     this.state = {
       user_id: null,
-      username: null
+      username: null,
+      collection_id: null
     }
   }
 
   setUser = (user) => {
-    console.log('setting this user' +user.id)
+    console.log('setting this user' +user.user_id)
+    console.log(user)
     this.setState({
-      user_id: user.id,
-      username: user.name
+      user_id: user.user_id,
+      username: user.username,
+      collection_id: user.collection_id
     })
   }
 
@@ -64,7 +67,7 @@ class App extends React.Component {
       }
     
 
-    const account = localStorage.getItem('token') == null ? (< Login setUser={this.setUser} />) : (<Account user_id={this.state.user_id} />)
+    const account = localStorage.getItem('token') == null ? (< Login setUser={this.setUser} />) : (<Account user_id={this.state.user_id} collection_id={this.state.collection_id}/>)
 
     return (
       <div className="App">

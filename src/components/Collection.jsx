@@ -17,11 +17,12 @@ class Collection extends React.Component {
     }
 
     getCollection = async () => {
-        const resp = await collection()
+        console.log("collection?: " + this.props.collection_id)
+        const resp = this.props.collection_id && await collection(this.props.collection_id)
         console.log('this is your collection ', resp)
-        console.log('collection MAYBE ', resp.results)
-        this.setState({
-            collectionData: resp.results
+        // console.log('collection MAYBE ', resp.record_ids)
+        resp && this.setState({
+            collectionData: resp.record_ids
         })
     }
     

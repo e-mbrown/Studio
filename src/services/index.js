@@ -37,8 +37,8 @@ export const records = async () => {
     return resp
 }
 
-export const collection = async () => {
-    const resp = await Api.get('api/collections/')
+export const collection = async (user_id) => {
+    const resp = await Api.get('api/collections/' + user_id + '/')
     return resp
 }
 

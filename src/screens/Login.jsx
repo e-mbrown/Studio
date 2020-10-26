@@ -11,6 +11,7 @@ class Login extends React.Component {
         this.state = {
             username: '',
             password: '',
+            // collection_id: null,
             error: null
         };
         this.handleChange = this.handleChange.bind(this);
@@ -33,7 +34,10 @@ class Login extends React.Component {
                 error: 'Invalid login.'
             })
         } else {
-            await this.props.setUser({token: resp.token});
+            await this.props.setUser(resp);
+            // this.setState({
+            //     collection_id: resp.collection_id
+            // })
             this.props.history.push(`/account`);
         }
       }
@@ -49,7 +53,7 @@ class Login extends React.Component {
                 <div>
                     <label htmlFor='username'>Username: </label>
                     <br></br>
-                    <input type='text' name='username' value={this.state.username} onChange={(e) => this.handleChange(e)}/>
+                    <input type='text' name='username' value={this.state.username} onChange={(e) => this.handleChange(e)} />
                 </div>
                 <br></br>
                 <div>

@@ -23,6 +23,7 @@ class Account extends React.Component {
       records: {},
       tab: "records",
       addToggle: "Add to Collection",
+      collection_id: null
     };
   }
 
@@ -34,12 +35,12 @@ class Account extends React.Component {
     if (this.state.tab === "records") {
       this.setState({
         tab: "collections",
-        addToggle: "Remove from Collection",
+        addToggle: "Remove from Collection"
       });
     } else if (this.state.tab === "collections") {
       this.setState({
         tab: "records",
-        addToggle: "Add to Collection",
+        addToggle: "Add to Collection"
       });
     }
   };
@@ -57,6 +58,7 @@ class Account extends React.Component {
           collection={this.state.collection}
           tab={this.state.addToggle}
           page={this.state.tab}
+          collection_id={this.props.collection_id}
         />
       );
 
